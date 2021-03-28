@@ -4,7 +4,9 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
+import { Planets } from "./views/planets";
 import { Single } from "./views/single";
+import { Single1 } from "./views/single1";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -17,27 +19,35 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-column">
-			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
-			</BrowserRouter>
+		<div className="continer-fluid">
+			<div className="d-flex flex-column">
+				<BrowserRouter basename={basename}>
+					<ScrollToTop>
+						<Navbar />
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route exact path="/demo">
+								<Demo />
+							</Route>
+							<Route exact path="/single/:theid">
+								<Single />
+							</Route>
+							<Route exact path="/planets">
+								<Planets />
+							</Route>
+							<Route exact path="/single1/:theid">
+								<Single1 />
+							</Route>
+							<Route>
+								<h1>Not found!</h1>
+							</Route>
+						</Switch>
+						<Footer />
+					</ScrollToTop>
+				</BrowserRouter>
+			</div>
 		</div>
 	);
 };
